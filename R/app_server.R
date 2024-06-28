@@ -5,5 +5,5 @@
 #' @import shiny
 #' @noRd
 app_server <- function(input, output, session) {
-  mod_dashboard_ui("dashboard")
+  mod_dashboard_server("dashboard")
 }

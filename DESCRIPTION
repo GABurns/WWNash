@@ -8,12 +8,16 @@ Description: A shiny app for submission to Wonderful Wednesdays.  Compares
 License: MIT + file LICENSE
 URL: https://github.com/GABurns/WWNash
 BugReports: https://github.com/GABurns/WWNash/issues
+Depends: 
+    R (>= 2.10)
 Imports: 
     bsicons,
     bslib,
     config (>= 0.3.2),
     golem (>= 0.4.1),
-    shiny (>= 1.8.1.1)
+    pkgload,
+    shiny (>= 1.8.1.1),
+    shinyWidgets
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.3.1
