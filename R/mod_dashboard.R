@@ -19,13 +19,18 @@ mod_dashboard_ui <- function(id) {
       col_widths = c(4, 8),
       card(
         helpText("Help"),
-        actionButton(ns("create_plot"), label = "Compare Simulations")
+        layout_columns(
+          col_widths = c(6, 6),
+          card(card_title("Baseline")), 
+          card(card_title("Comparator"))
+        ),
+        actionButton(ns("compare"), label = "Compare Simulations")
       ),
       card(
         layout_columns(
           row_heights = "200px",
           value_box(
-            title = "Mean Number of Patients",
+            title = "Mean Number of Participants ",
             value = textOutput(ns("leader")),
             showcase = bs_icon("person-arms-up"),
             p(
@@ -34,18 +39,18 @@ mod_dashboard_ui <- function(id) {
             )
           ),
           value_box(
-            title = "Top Organisation",
-            value = textOutput(ns("org")),
-            showcase = bs_icon("dice-6-fill"),
+            title = "Mean Number of Cohorts",
+            value = textOutput(ns("Cohorts")),
+            showcase = bs_icon("collection-fill"),
             p(
               bs_icon("arrow-up-circle-fill", size = "2em"),
-              textOutput(ns("org_story"))
+              textOutput(ns("cohort"))
             )
           ),
           value_box(
-            title = "Top Role",
-            value = textOutput(ns("role")),
-            showcase = bs_icon("trophy-fill"),
+            title = "False Discovery Rate",
+            value = textOutput(ns("FDR")),
+            showcase = bs_icon("slash-square-fill"),
             p(
               bs_icon("arrow-up-circle-fill", size = "2em"),
               textOutput(ns("role_story"))
@@ -66,11 +71,13 @@ mod_dashboard_server <- function(id) {
   moduleServer(id, function(input, output, session) {
     ns <- session$ns
     
+    data <- eventReactive(input$compare, {
+      
+    }, ignoreNULL = TRUE, ignoreInit = TRUE)
+    
+    output$plot <- renderPlot({
+      validate(need())
+    })
+    
   })
 }
-
-## To be copied in the UI
-# mod_dashboard_ui("dashboard_1")
-
-## To be copied in the server
-# mod_dashboard_server("dashboard_1")
