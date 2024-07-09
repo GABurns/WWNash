@@ -1,4 +1,5 @@
 #' @title create_beautiful_radarchart
+#' @import fmsb
 #' @details
 #' https://www.datanovia.com/en/blog/beautiful-radar-chart-in-r-using-fmsb-and-ggplot-packages/
 

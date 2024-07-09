@@ -14,8 +14,10 @@ Imports:
     bsicons,
     bslib,
     config (>= 0.3.2),
+    fmsb,
     golem (>= 0.4.1),
     pkgload,
+    scales,
     shiny (>= 1.8.1.1),
     shinyWidgets
 Encoding: UTF-8

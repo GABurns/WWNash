@@ -41,6 +41,7 @@ golem::add_dockerfile_with_renv_shinyproxy()
 
 # Deploy to Posit Connect or ShinyApps.io
 # In command line.
+options(rsconnect.packrat = TRUE)
 rsconnect::deployApp(
   appName = desc::desc_get_field("Package"),
   appTitle = desc::desc_get_field("Package"),
